@@ -39,6 +39,7 @@ package
 			
 			trace(NativeApplication.nativeApplication.runtimeVersion);
 			
+			
 			BgType.DEFAULT = DeviceUtils.onIOS? BgType.WHITE_GRID: BgType.BLACK_GRID;
 			ColorTheme.bgType = BgType.DEFAULT;
 			

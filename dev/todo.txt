@@ -1,3 +1,7 @@
+3.0
+* Update GoViral ANE, Test Sharing / Facebook on iOS
+* Update to new CameraRoll ANE
+
 
 
 * Fixed Facebook Import issues 
