@@ -1,0 +1,40 @@
+Beautiful design combined with tons of editing options and dozen's of filters make this the premier mobile editing suite on the market. You will love this app! 
+
+With support for HD images up to 8MP, PicShop is great for serious photographers as well as casual. We've integrated social sharing right into the app, so you can to post to Facebook, Twitter or Email with a single click! 
+
+FEATURES
+* Full Editing Suite
+* Filters and Effects
+* Frames and Overlays
+
+* Sketch Mode w/ 8 different brushes
+* Meme Maker (YES RLY)
+* Speech Bubbles
+* Text w/ Adjustable Font
+* Add images as extra layers (collage)
+* Fun Stickers (Hats, Moustaches, Love etc)
+* Social Integration (Facebook, Twitter, Instagram, Email)
+* Customize app with your own personal theme color
+
+EDITING SUITE
+
+* Color / Saturation
+* Brightness / Contrast
+* Sharpen / Blur
+
+* Tilt Shift
+* Focal Point
+* Teeth Whitening
+* Blemish Remover
+* RedEye Remover
+* Auto-Correction
+
+* Crop
+* Rotate 
+* Flip
+
+
+The UI Layer for PicShop is fully GPU accelerated, which translates into extremely low battery consumption for you, and a beautifully smooth 60hz interface that is a joy to use.
+
+
+NOTE: The drawing engine is a direct port of HarmonyJS by 'Mr Doob'. Also, we would like to thank Quasimondo for the brilliant ColorMatrix class.

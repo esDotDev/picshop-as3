@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qnx>
+	<initialWindow>
+	   <systemChrome>none</systemChrome>
+	   <transparent>false</transparent>
+	</initialWindow>
+	<author>esDot Development Studio</author>
+	
+	<!--  The category where the application appear. Either core.games or core.media-->
+   <category>core.media</category>
+	
+   <!--  Unique author ID assigned by signing authority. Required if using debug tokens -->
+   <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
+
+   <!--  The icon for the application which should be 86x86 -->
+	<icon>
+    	<image>assets/icons/icon-86.png</image>
+	</icon>
+	
+   <permission>access_shared</permission>
+   <permission>use_camera</permission>
+   <permission>access_internet</permission>
+   <!--  The splashscreen that will appear when your application is launching. Should be 1024x600. -->
+   <splashscreen>assets/external/SplashPlaybook.png:assets/external/SplashPlaybook.png</splashscreen>
+	
+   <invoke-target id="ca.esdot.PicShop.Lite">
+	  <invoke-target-type>application</invoke-target-type>
+	  <filter>
+	    <action>bb.action.SHARE</action>
+	    <action>bb.action.OPEN</action>
+	    <mime-type>image/png</mime-type>
+	    <mime-type>image/jpeg</mime-type>
+	    <property var="uris" value="file://"/>
+	  </filter>
+	</invoke-target>
+
+</qnx>

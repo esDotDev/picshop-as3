@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/18.0">
+
+	<id>ca.esdot.PicShop</id>
+	<filename>PicShop</filename>
+	<name>PicShop</name>
+	<versionNumber>3.0.0</versionNumber>
+		        
+	<initialWindow>
+		<content>PicShop.swf</content>
+		<width>1024</width>
+		<height>600</height>
+		<!-- <aspectRatio>landscape</aspectRatio> -->
+		<fullScreen>true</fullScreen>
+		<autoOrients>true</autoOrients>
+	    <visible>true</visible>
+	    <renderMode>gpu</renderMode>
+    </initialWindow>
+
+    <icon>
+		 <image29x29>assets/icons/29.png</image29x29>
+		 <image36x36>assets/icons/36.png</image36x36>
+		 <image40x40>assets/icons/40.png</image40x40>
+		 <image48x48>assets/icons/48.png</image48x48>
+		 <image50x50>assets/icons/50.png</image50x50>
+		 <image57x57>assets/icons/57.png</image57x57>
+		 <image58x58>assets/icons/58.png</image58x58>
+		 <image72x72>assets/icons/72.png</image72x72>
+		 <image76x76>assets/icons/76.png</image76x76>
+		 <image80x80>assets/icons/80.png</image80x80>
+		 <image96x96>assets/icons/96.png</image96x96>
+		 <image100x100>assets/icons/100.png</image100x100>
+		 <image114x114>assets/icons/114.png</image114x114>
+		 <image120x120>assets/icons/120.png</image120x120>
+		 <image144x144>assets/icons/144.png</image144x144>
+		 <image152x152>assets/icons/152.png</image152x152>
+		 <image512x512>assets/icons/512.png</image512x512>
+		 <image1024x1024>assets/icons/1024.png</image1024x1024>
+	</icon>
+	
+	<iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+			
+			<key>UIPrerenderedIcon</key>
+			<true/>
+			
+			<key>FacebookAppID</key>
+			<string>287066698013735</string>
+			
+			<key>UIViewControllerBasedStatusBarAppearance</key>
+            <false/>
+
+			<key>CFBundleURLTypes</key>
+			<array>
+				<dict>
+					<key>CFBundleURLSchemes</key>
+					<array>
+						<string>fb287066698013735</string>
+					</array>
+				</dict>
+			</array>
+			
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+     
+    <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				<uses-sdk android:targetSdkVersion="19"/>
+				<uses-sdk android:minSdkVersion="8"/>
+				<uses-permission android:name="android.permission.INTERNET"/>
+				<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			    <uses-permission android:name="android.permission.CAMERA"/>
+			    <uses-feature android:name="android.hardware.camera" android:required="false"/> 
+                <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/> 
+                <uses-feature android:name="android.hardware.camera.flash" android:required="false"/> 
+   
+			    <application>
+					
+					<activity android:name="com.freshplanet.ane.AirImagePicker.AirImagePickerActivity"
+					    android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|fontScale" />
+					  
+				    <activity android:launchMode="standard">
+						<intent-filter> 
+						 <action android:name="android.intent.action.MAIN"/> 
+						 <category android:name="android.intent.category.LAUNCHER"/> 
+						</intent-filter> 
+					</activity>
+	
+			        <activity android:name="com.facebook.LoginActivity"
+			                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+			                  android:label="Login" />
+				  
+				 	<provider android:authorities="com.facebook.app.NativeAppCallContentProvider287066698013735" android:name="com.facebook.NativeAppCallContentProvider" />
+				 	
+				</application>
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+    
+	<extensions>
+        <extensionID>com.milkmangames.extensions.StoreKit</extensionID>
+    	<extensionID>com.milkmangames.extensions.AndroidIAB</extensionID>
+	    <extensionID>com.milkmangames.extensions.GoViral</extensionID>
+    	<extensionID>com.davikingcode.nativeExtensions.Instagram</extensionID>
+    	<extensionID>com.supersonic.air</extensionID>
+    	<!-- <extensionID>com.vitapoly.nativeextensions.CoreImage</extensionID> -->
+	    <extensionID>com.freshplanet.AirImagePicker</extensionID>
+    	<extensionID>com.mika.ane.refreshgallery</extensionID>
+   		<extensionID>com.doitflash.air.extensions.packageManager</extensionID>
+	    
+    <extensionID>com.vitapoly.nativeextensions.CoreImage</extensionID>
+    </extensions>
+    
+    
+</application>

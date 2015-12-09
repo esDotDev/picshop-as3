@@ -1,0 +1,8 @@
+ Uncomment all /*BB10 Platform
+
+ Include 4 Ane'S
+ Include 2 swc folders and 1 swc
+ enable RENDER::GPU
+ swf-version=14
+ <renderMode>cpu</renderMode>
+ 

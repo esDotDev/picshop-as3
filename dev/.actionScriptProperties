@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<actionScriptProperties analytics="false" mainApplicationPath="PicShop.as" projectUUID="97a3a331-9909-47ad-98b6-6cdc88c2d6ef" version="11">
+  <compiler additionalCompilerArguments="-locale en_US &#13;&#10;-swf-version=29&#13;&#10;-define=RENDER::GPU,true&#13;&#10;-define=CONFIG::isBB10,false" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="true" flexSDK="Flex 4.6.0" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
+    <compilerSourcePath/>
+    <libraryPath defaultLinkType="0">
+      <libraryPathEntry kind="4" path="">
+        <excludedEntries>
+          <libraryPathEntry kind="1" linkType="1" path="${PROJECT_FRAMEWORKS}/locale/{locale}"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/advancedgrids.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/charts.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_air.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/netmon.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/spark.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/sparkskins.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/rpc.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/videoPlayer.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/qtp_air.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/flash-integration.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/authoringsupport.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/qtp.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/framework.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airspark.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/mx/mx.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/utilities.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/datavisualization.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/spark_dmv.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_dmv.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_flashflexkit.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airframework.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/mobile/mobilecomponents.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
+        </excludedEntries>
+      </libraryPathEntry>
+      <libraryPathEntry kind="1" linkType="1" path="libs"/>
+      <libraryPathEntry kind="3" linkType="1" path="src/assets/Assets.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="src/assets/swc"/>
+      <libraryPathEntry kind="3" linkType="1" path="ext/packageManagerExtensions.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="ext/Instagram.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="src/assets/frameshop_swc"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/com.milkmangames.extensions.StoreKit.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/coreImage/CoreImage.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/com.milkmangames.extensions.GoViral.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/RefreshGallery.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/AirImagePicker.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/Instagram.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/packageManagerExtensions.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/SupersonicAirPlugin-5.0.4.ane"/>
+    </libraryPath>
+    <sourceAttachmentPath/>
+  </compiler>
+  <applications>
+    <application path="PicShopLite.as">
+      <airExcludes/>
+    </application>
+    <application path="PicShopAmazon.as">
+      <airExcludes/>
+    </application>
+    <application path="PicShop.as">
+      <airExcludes/>
+    </application>
+    <application path="PicShopLiteAmazon.as">
+      <airExcludes/>
+    </application>
+  </applications>
+  <modules/>
+  <workers/>
+  <buildCSSFiles/>
+  <flashCatalyst validateFlashCatalystCompatibility="false"/>
+  <buildTargets>
+    <buildTarget buildTargetName="default" isCurrent="false" platformId="default">
+      <airSettings airCertificatePath="" airTimestamp="true" anePathSet="false" version="1">
+        <airExcludes/>
+        <anePaths/>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams/>
+        <modifiedPackagingParams/>
+      </airSettings>
+      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="default" reducedSizePackaging="false" version="2"/>
+      <actionScriptSettings version="1"/>
+    </buildTarget>
+    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="D:/_Development/esDot Studio/_certs/provisioningProfiles/Test_Profile.mobileprovision" releasePackageType="ipa-app-store">
+      <airSettings airCertificatePath="D:/_Development/esDot Studio/_certs/AppleDevelopmentCertificate.p12" airTimestamp="true" anePathSet="true" version="1">
+        <airExcludes>
+          <pathEntry path="assets/Assets.fla"/>
+          <pathEntry path="assets/Assets.swf"/>
+          <pathEntry path="build.txt"/>
+          <pathEntry path="assets/spinnerPreloader.swf"/>
+          <pathEntry path="assets/BitmapSlice9.jsfl"/>
+          <pathEntry path="dummyData"/>
+          <pathEntry path="assets/Untitled-1.fla"/>
+          <pathEntry path="fonts"/>
+          <pathEntry path="assets/spinnerPreloader.fla"/>
+          <pathEntry path="assets/TouchAnimation.fla"/>
+          <pathEntry path="assets/Assets_old.swf"/>
+          <pathEntry path="assets/external"/>
+          <pathEntry path="assets/filters"/>
+          <pathEntry path="assets/Untitled-1.swf"/>
+          <pathEntry path="BB10 Checklist.txt"/>
+          <pathEntry path="assets/Assets_old.fla"/>
+          <pathEntry path="buildNum.txt"/>
+          <pathEntry path="assets/bitmaps"/>
+          <pathEntry path="assets/swc"/>
+          <pathEntry path="assets/TouchAnimation.swf"/>
+        </airExcludes>
+        <anePaths>
+          <anePathEntry path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
+          <anePathEntry path="ext/com.milkmangames.extensions.StoreKit.ane"/>
+          <anePathEntry path="ext/com.milkmangames.extensions.GoViral.ane"/>
+          <anePathEntry path="ext/AirImagePicker.ane"/>
+          <anePathEntry path="ext/Instagram.ane"/>
+          <anePathEntry path="ext/SupersonicAirPlugin-5.0.4.ane"/>
+        </anePaths>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams>
+          <Parameter location="placeBefore" name="-useLegacyAOT" placeBefore="-platformsdk" value="no"/>
+        </newPackagingParams>
+        <modifiedPackagingParams/>
+      </airSettings>
+      <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="2"/>
+      <actionScriptSettings version="1"/>
+    </buildTarget>
+    <buildTarget airDownloadURL="https://market.android.com/details?id=com.adobe.air" androidSettingsVersion="2" buildTargetName="device" isCurrent="true" platformId="com.adobe.flexide.multiplatform.android.platform">
+      <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.android.platform" reducedSizePackaging="false" version="1"/>
+      <airSettings airCertificatePath="D:/_Development/esDot Studio/_certs/esdotcert.p12" airTimestamp="true" anePathSet="true" version="1">
+        <airExcludes>
+          <pathEntry path="assets/TouchAnimation.swf"/>
+          <pathEntry path="Default-Portrait.png"/>
+          <pathEntry path="assets/Assets_old.swf"/>
+          <pathEntry path="Default-Landscape@2x.png"/>
+          <pathEntry path="dummyData"/>
+          <pathEntry path="assets/Untitled-1.fla"/>
+          <pathEntry path="assets/filters"/>
+          <pathEntry path="Default-Portrait@2x.png"/>
+          <pathEntry path="assets/bitmaps"/>
+          <pathEntry path="Default.png"/>
+          <pathEntry path="BB10 Checklist.txt"/>
+          <pathEntry path="assets/swc"/>
+          <pathEntry path="assets/Assets_old.fla"/>
+          <pathEntry path="assets/external"/>
+          <pathEntry path="assets/BitmapSlice9.jsfl"/>
+          <pathEntry path="Default-Landscape.png"/>
+          <pathEntry path="assets/TouchAnimation.fla"/>
+          <pathEntry path="assets/Untitled-1.swf"/>
+          <pathEntry path="buildNum.txt"/>
+          <pathEntry path="Default@2x.png"/>
+          <pathEntry path="fonts"/>
+          <pathEntry path="assets/spinnerPreloader.fla"/>
+          <pathEntry path="assets/Assets.swf"/>
+          <pathEntry path="build.txt"/>
+          <pathEntry path="Default-568h@2x.png"/>
+          <pathEntry path="assets/Assets.fla"/>
+        </airExcludes>
+        <anePaths>
+          <anePathEntry path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
+          <anePathEntry path="ext/com.milkmangames.extensions.StoreKit.ane"/>
+          <anePathEntry path="ext/coreImage/CoreImage.ane"/>
+          <anePathEntry path="ext/com.milkmangames.extensions.GoViral.ane"/>
+          <anePathEntry path="ext/RefreshGallery.ane"/>
+          <anePathEntry path="ext/AirImagePicker.ane"/>
+          <anePathEntry path="ext/Instagram.ane"/>
+          <anePathEntry path="ext/packageManagerExtensions.ane"/>
+          <anePathEntry path="ext/SupersonicAirPlugin-5.0.4.ane"/>
+        </anePaths>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams/>
+        <modifiedPackagingParams/>
+      </airSettings>
+      <actionScriptSettings version="1"/>
+    </buildTarget>
+    <buildTarget buildTargetName="device" extraPackagingOptions="-forceAirVersion 3.5" isCurrent="true" platformId="com.qnx.flexide.multiplatform.qnx.platform" signBarFile="true" version="version">
+      <airSettings airCertificatePath="" airTimestamp="true" anePathSet="true" version="1">
+        <airExcludes>
+          <pathEntry path="assets/Assets.swf"/>
+          <pathEntry path="Default-Landscape.png"/>
+          <pathEntry path="assets/spinnerPreloader.swf"/>
+          <pathEntry path="assets/BitmapSlice9.jsfl"/>
+          <pathEntry path="dummyData"/>
+          <pathEntry path="Default.png"/>
+          <pathEntry path="Default-Portrait@2x.png"/>
+          <pathEntry path="BB10 Checklist.txt"/>
+          <pathEntry path="Default-568h@2x.png"/>
+          <pathEntry path="assets/swc"/>
+          <pathEntry path="Default-Portrait.png"/>
+          <pathEntry path="assets/Assets.fla"/>
+          <pathEntry path="Default-Landscape@2x.png"/>
+          <pathEntry path="fonts"/>
+          <pathEntry path="assets/Untitled-1.fla"/>
+          <pathEntry path="assets/TouchAnimation.fla"/>
+          <pathEntry path="assets/spinnerPreloader.fla"/>
+          <pathEntry path="assets/Assets_old.swf"/>
+          <pathEntry path="assets/Untitled-1.swf"/>
+          <pathEntry path="assets/filters"/>
+          <pathEntry path="assets/Assets_old.fla"/>
+          <pathEntry path="buildNum.txt"/>
+          <pathEntry path="assets/bitmaps"/>
+          <pathEntry path="assets/TouchAnimation.swf"/>
+          <pathEntry path="Default@2x.png"/>
+        </airExcludes>
+        <anePaths>
+          <anePathEntry path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
+          <anePathEntry path="ext/com.milkmangames.extensions.StoreKit.ane"/>
+          <anePathEntry path="ext/coreImage/CoreImage.ane"/>
+          <anePathEntry path="ext/com.milkmangames.extensions.GoViral.ane"/>
+        </anePaths>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams/>
+        <modifiedPackagingParams/>
+      </airSettings>
+      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="true" platformID="com.qnx.flexide.multiplatform.qnx.platform" reducedSizePackaging="false" version="2"/>
+      <actionScriptSettings version="1"/>
+    </buildTarget>
+  </buildTargets>
+</actionScriptProperties>
+

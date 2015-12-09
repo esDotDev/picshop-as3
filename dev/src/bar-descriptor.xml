@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<qnx>
+   <initialWindow>
+      <systemChrome>none</systemChrome>
+      <transparent>false</transparent>
+   </initialWindow>
+	<author>esDot Development Studio</author>
+	
+	<!--  The category where the application appear. Either core.games or core.media-->
+   <category>core.media</category>
+   
+   <permission>access_shared</permission>
+   <permission>use_camera</permission>
+   <permission>access_internet</permission>
+   
+   <icon>
+    	<image>assets/icons/114.png</image>
+	</icon>
+	
+	<splashscreen>assets/external/Splash.png</splashscreen>
+
+   <invoke-target id="ca.esdot.PicShop">
+	  <invoke-target-type>application</invoke-target-type>
+	  <filter>
+	    <action>bb.action.SHARE</action>
+	    <action>bb.action.OPEN</action>
+	    <mime-type>image/png</mime-type>
+	    <mime-type>image/jpeg</mime-type>
+	    <property var="uris" value="file://"/>
+	  </filter>
+	</invoke-target>
+ 	
+</qnx>

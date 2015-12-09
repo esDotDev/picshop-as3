@@ -1,0 +1,37 @@
+With support for HD images up to 8MP, PicShop is great for serious photographers as well as casual. We've integrated social sharing right into the app, so you can to post to Facebook, Twitter or Email with a single click! 
+
+FEATURES
+* Load pics directly from Facebook! 
+* Full Editing Suite
+* Filters and Effects
+* Frames and Overlays
+* Optimized for iPad Retina Display
+
+* Sketch Mode w/ 8 different brushes
+* Meme Maker (YES RLY)
+* Speech Bubbles
+* Text w/ Adjustable Font
+
+* Fun Stickers (Hats, Moustaches, Love etc)
+* Social Integration (Facebook, Twitter, Email)
+* Customize app with your own personal theme
+
+EDITING SUITE
+
+* Color / Saturation
+* Brightness / Contrast
+* Sharpen / Blur
+* Straighten
+
+* Tilt Shift
+* Depth of Field
+* Blemish Remover
+* RedEye Remover
+* Auto-Correction
+
+* Crop
+* Rotate 
+* Flip
+
+
+The UI Layer for PicShop is fully GPU accelerated, which translates into extremely low battery consumption for you, and a beautifully smooth 60hz interface that is a joy to use.

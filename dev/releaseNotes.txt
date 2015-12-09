@@ -1,0 +1,153 @@
+
+* Buttons w/ Sliders are not sized right in Editors
+* Rotate controls don't always fit in Portrait
+
+* Focal Point breaks after a resize
+* Crop is wrong size after a resize
+* Filters/Frames - Image is not top-aligned after Portrait-resize
+* Image layer (and all Stickers) are totally busted on resize
+* Mememaker not resizing image properly
+* COlorPicker is not sizing correctly in ColorFill
+
+PRO
+- 
+
+LITE
+* Finish IAP testing
+* Finish Prompt screens for Frames/Filters
+
+
+2.94.0
+* New: Teeth Whitening!
+* New: Auto-Save! Your previous work will be restored each time PicShop is launched.
+* New: Instagram sharing!
+* New: Opacity controls for Stickers
+* Updated: Facebook / Twitter API
+* Fixed: Blend Modes for Image Layers
+* Fixed: Massively reduced memory usage & crashes
+* Fixed: Broken image loading when EXIF data is missing
+
+
+
+More Filters from CoreImage ANE
+ - Sharpen
+ - Auto Red-Eye
+ 
+More Frames?
+
+Teeth Whitening
+
+Memory Leaks in Draw Mode
+
+NEW FEATURES
+
+2.10.0
+* Fixed facebook/twitter sharing
+* Fixed issues with Android 4.4.2 image imports
+* Improved stability
+* 
+
+
+2.9.3
+* Choose between Dark or Light Color Themes
+* Improved stability for long work sessions
+* Improved Sticker image quality
+* Improved ImageLayer image quality
+* New Frames!
+
+2.9.0
+* Improved reliability when saving large images.
+* Fixed issue with improper rotation when opening images
+
+COLORUP (New Name)
+
+2.8.0
+* Improve Layer Resize Performance
+* Removed StartUp Tips for experienced users
+* Fixed Facebook Upload for some devices
+
+
+* Implement Twitter/Facebook Services on BB10
+* Fix IAP's on Android
+* Fix Facebook Sharing on Android
+* Check Gallery Refresh for Amazon
+
+
+
+2.7
+* BB10 Support!
+* Increase Sticker Size
+* Fixed Facebook Sharing for some users
+* New loading animation
+
+2.3
+* Fixes for Android JellyBean
+* Much Improved Pinch-To-Zoom and Panning!
+* Added 'Compare to Original' button
+* Added custom size settings (max of 12MP)
+* Improved interface for Blemish Removal
+* Control Blend Modes of imported Image Layers
+* 100+ New Stickers, Pointers and Shapes 
+* New Stickers: Eyes, Mouth, Memes, Pixel Art
+* Added Color Tinting to all Stickers
+* Fix for Polaroids in Portrait View
+* Fix issue with Stickers getting stuck on Stage
+
+
+2.2
+* Import from Facebook
+* Support transparent Image Layer's
+* Native Twitter Share on iOS
+* iOS 6 Beta Support
+* Improved sharing support on Android
+* Upgraded to Adobe AIR 3.3
+
+////////////////////////////////////////////////////////////
+2.0.2
+
+What's New? 
+
+* Zoom while editing (Great for Blemish/RedEye Removal!)
+* Color Blending for Focus Editor
+* Color Blending for Tilt-Shift Editor
+* New Borders w/ adjustable Colors
+* "Rule of Thirds" grid in Crop View
+* Additional Crop Aspect Ratio's
+* New FishEye Lens
+* BgFill + Image Layers to easily create a Collage
+
+Fixes
+- Reduced crashes on some devices
+- Fixed bugs when cropping Portrait Images
+- Fixed Blemish Bug with white fill
+- Fixed Crop / Tilt / Focus positioning bugs in Portrait
+- Fixed button labels in Draw Editor
+
+Known Issues 
+Android 4.x - Can't Load Picasa/Google+ Images (Adobe AIR Bug - Logged)
+Galaxy S2 - Possibly slow Performance (Need to find test device)
+
+UPCOMING FEATURES
+Native Twitter Support on iOS
+iPad 3 Retina Support
+
+
+////////////////////////////////////////////////////////////
+
+1.3.2
+* Reduced initial sizing for stickers
+* Added text support for many more languages!
+* Changed default color to Green
+
+////////////////////////////////////////////////////////////
+
+1.3
+* Improved UI sizing for Tablets and mid-DPI Devices.
+* Fixed crash bug with In App Upgrades
+* Unlocked Social Sharing for all Lite users!
+* Added text support for many more languages!
+* Improved UI sizing
+* Reduced initial sizing for stickers
+* Changed default color to Green
+
+////////////////////////////////////////////////////////////

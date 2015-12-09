@@ -1,0 +1,87 @@
+
+
+* Fixed Facebook Import issues 
+* Fixed rotation bug when importing images
+* Improved reliability when importing images (iOS)
+
+
+* Redesigned for iOS8
+* Interface Improvements
+* Fixed: Facebook sharing issues
+
+New ScreenShots
+Upload Build
+
+2.9.2
+* Move BG Fill to end of list
+* Save/Open icons should be bolder
+* Colorize the Save/Back icons on SaveView
+* Add top divider to Facebook dialog
+* Change "Write Here..." to "..."
+* Remove any hard black from icons in FLA
+* Fix Radio Popup to not overscroll when selecting a bottom index
+* Debug iOS Overlay Issues
+
+* Improve vector quality of stickers
+* Set custom window size for CameraRoll
+
+APP GRATIS
+- Bump version number,
+- Unlock full version
+- Ad AppGratis Image
+- Test Resolutions
+
+
+
+1.1 TODO
+* Fix performance of undo when drawing
+* Add "Import"
+* More Filters: HDR, Vivid, Halo, retro, Georgia??
+* Android Share Button
+
+**************************************************************
+LAUNCH PLAN
+**************************************************************
+New App Stores
+GetJar
+AndAppStore
+OnlyAndroid?
+Insyde?
+Appoke
+SlideME
+
+LAUNCH PLAN
+
+Week 1
+PicShop HD - Photo Editor (Android, Playbook, iOS, Amazon, +++?)
+PicShop - Photo Editor (iOS)
+
+Week 2
+Picshop Lite (Playbook, Amazon)
+
+Week 3
+Picshop Lite w/ IAP (Android iOS)
+
+
+
+**************************************************************
+FUTURE
+**************************************************************
+VIEWS
+* Library View
+* Edit View
+* Share View
+
+EDIT TYPES
+* bitmapData
+* overlays (includes multiple sketchPads)
+
+EXTRAS
+* Stickers
+* Text
+* Doodles
+* Import
+
+SOMEDAY
+ * Video Tutorial (When Beta is Complete)
+ * Tutorial Overlay's
