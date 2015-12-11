@@ -1,5 +1,11 @@
 package ca.esdot.picshop.commands
 {
+	import com.distriqt.extension.camerarollextended.Asset;
+	import com.distriqt.extension.camerarollextended.AssetRepresentation;
+	import com.distriqt.extension.camerarollextended.CameraRollExtended;
+	import com.distriqt.extension.camerarollextended.CameraRollExtendedBrowseOptions;
+	import com.distriqt.extension.camerarollextended.Orientation;
+	import com.distriqt.extension.camerarollextended.events.CameraRollExtendedEvent;
 	import com.freshplanet.ane.AirImagePicker.AirImagePicker;
 	import com.vitapoly.nativeextensions.coreimage.CoreImage;
 	import com.vitapoly.nativeextensions.coreimage.ImageFilter;
@@ -44,6 +50,9 @@ package ca.esdot.picshop.commands
 	
 	public class OpenImageCommand extends Command
 	{
+		protected var DISTRIQT_KEY:String = "159f9dbd4bccc1705a616bdbdb06eaa6be664f98a2oYd1Xv+4OrCHdHJ8A6XWx05XwceF6C2r6ruFTXeOKzFfbRcAOCM7jxpUK+8EuPheNySkqLD6dNyV+0bpmQcuj7CfUfacfE9jWGSdBNc96u5ihiUFsFrdiEr/REMd0yBbz1LeDPp35qVgB1qJI2bzFnPXWrlTIlAPwCfArSN65KWhnLrh6qX3X+nMydZVrgFsVuxG/VrxCW8iWP5ZCBa2I/G+BLuT8MQSY5CSp4V385XY20mnFsEWSIFhN9kRMphkIYl+8aE+qdEC1j7ZYBmJG5RCoyNs9g0jxlZKx+FpgxGSRs5SUP35oF/rnz0RBTBpKyOPdH1aNVDVLDxN9uww==";
+		protected var DISTRIQT_KEY_LITE:String = "b9cb9c4befeb6224dd02813ae67e68fed122634eD48koa78nUSMpgWZM8W0p1ynbqE4dfODjM3T4Z2vigZy5Wb5qNwpB3J+gQ3n7ox4tBdVwDg8U+9z+8gSwMYtb/wnG0sGYRLZSKdMuCQFJJxYINp0BWN9KTBDDi+NfVXH9GbgFKbgozlAZCHlEM4VFVnHu20EPP98otjjLw+S1VTeAcRmvQ+j++tuSycG6rPTrb3xHAQMaykU/91K8M5Whzqd3IMAkbnAJ0F0QdVJuwVUpppBUeoSUHuh6TF6GKcE4F9oNnq8EpO7uiPqKUaQpapL/xtL/sDoqVH3YCfwvLkKvTmNfelMUGSl4+tM3QVITqram5qjWRR6Pjs+a96U8Q==";
+		
 		[Inject]
 		public var event:OpenImageEvent;
 		
@@ -56,13 +65,22 @@ package ca.esdot.picshop.commands
 		protected var exifLoader:ExifLoader;
 		protected var exifRotation:int = 0;
 		
-		protected var imagePicker:AirImagePicker;
-		protected var coreImage:CoreImage;
 		
 		override public function execute():void {
 			trace("Open Image!", CameraUI.isSupported);
 			
-			imagePicker = AirImagePicker.getInstance();
+			CameraRollExtended.init( DISTRIQT_KEY );
+			if (CameraRollExtended.isSupported )
+			{
+				trace( "CameraRollExtended Version:     " + CameraRollExtended.service.version );
+				trace( "CameraRollExtended Auth Status: " + CameraRollExtended.service.authorisationStatus() );
+				
+				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.CANCEL, onDistriqtCameraRollCancel );
+				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.SELECT, onDistriqtCameraRollSelect );
+				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.LOADED, onDistriqtCameraRollLoaded );
+				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.ASSET_LOADED, onDistriqtCameraRollAssetLoaded );
+			}
+			
 			
 			//Load specific BitmapData
 			if(event.type == OpenImageEvent.BITMAP_DATA){
@@ -86,7 +104,7 @@ package ca.esdot.picshop.commands
 			else {
 				//Camera
 				if(event.type == OpenImageEvent.CAMERA && CameraUI.isSupported){
-					if(imagePicker && imagePicker.isCameraAvailable()){
+					/*if(imagePicker && imagePicker.isCameraAvailable()){
 						imagePicker.displayCamera(function(status:String, ...mediaArgs):void {
 							//Load was successful
 							if(status == AirImagePicker.STATUS_OK && mediaArgs[0] is BitmapData){
@@ -99,53 +117,63 @@ package ca.esdot.picshop.commands
 							
 						});
 					} else {
+					*/
 						var cameraUi:CameraUI = new CameraUI();
 						cameraUi.launch(MediaType.IMAGE);
 						cameraUi.addEventListener(MediaEvent.COMPLETE, onPhotoSelected);
 						cameraUi.addEventListener(Event.CANCEL, onPhotoCancel);
-					}
+					//}
 					AnalyticsManager.imageOpened();
 					
 				}
 				//Camera Roll
-				else if(CameraRoll.supportsBrowseForImage) { // || imagePicker.isImagePickerAvailable()
+				else if(CameraRoll.supportsBrowseForImage || CameraRollExtended.isSupported) { 
 					
-					//** SB: Disabled use of ImagePicker because of many bug reports on Android - July 8, 2014
-					// 
-					/*
-					if(imagePicker.isImagePickerAvailable()){
-						imagePicker.displayImagePicker(function(status:String, ...mediaArgs):void {
-							//Load was successful
-							if(status == AirImagePicker.STATUS_OK && mediaArgs[0] is BitmapData){
-								setSource(mediaArgs[0]);
-							}
-							//Error!
-							else {
-								photoFailed();
-							}
+					if (CameraRollExtended.isSupported ){
+						if (!CameraRollExtended.service.hasAccess()){
+							CameraRollExtended.service.requestAccess();
+							onCancel(null);
 							
-						});
+						} else {
+							var options:CameraRollExtendedBrowseOptions = new CameraRollExtendedBrowseOptions();
+							options.maximumCount = 1;
+							options.type = Asset.IMAGE;
+							CameraRollExtended.service.browseForAsset( options );
+						}
 					} else {
-					}
-					*/
 						var camera:CameraRoll = new CameraRoll();
-						//if(DeviceUtils.onIOS){
-							//var opts:CameraRollBrowseOptions = new CameraRollBrowseOptions();
-							//opts.width = contextView.stage.stageWidth * .8;
-							//opts.height = contextView.stage.stageHeight * .75;
-							//camera.browseForImage(opts);
-						//} else {
 						camera.browseForImage();
-						//}
 						camera.addEventListener(MediaEvent.SELECT, onPhotoSelected);
 						camera.addEventListener(Event.CANCEL, onCancel);
-					//}
+					}
 					AnalyticsManager.imageOpened();
 				} 
 			}
-			
+		}
+		
+		protected function onDistriqtCameraRollAssetLoaded(event:CameraRollExtendedEvent):void {
+			var asset:Asset = event.assets[0];
+			trace( "camera roll asset loaded, " + asset.filename + ", " + asset.orientation );
+			switch(asset.orientation) {
+				case Orientation.ORIENTATION_NORMAL: exifRotation = 0; break;
+				case Orientation.ORIENTATION_ROTATE_90: exifRotation = 270; break;
+				case Orientation.ORIENTATION_ROTATE_180: exifRotation = 180; break;
+				case Orientation.ORIENTATION_ROTATE_270: exifRotation = 90; break;
+			}
+			setSource(asset.bitmapData);
 			
 		}
+		protected function onDistriqtCameraRollLoaded(event:CameraRollExtendedEvent):void { }
+		protected function onDistriqtCameraRollSelect(event:CameraRollExtendedEvent):void {	 
+			var asset:Asset = event.assets[0];
+			if (asset.type == Asset.IMAGE){
+				CameraRollExtended.service.loadAssetByURL( asset.url, AssetRepresentation.FULL_RESOLUTION);
+			}
+		}
+		protected function onDistriqtCameraRollCancel(event:CameraRollExtendedEvent):void {
+			onCancel(null);
+		}
+		
 		
 		protected function onCancel(event:Event):void {
 			releaseCommand();
@@ -155,36 +183,25 @@ package ca.esdot.picshop.commands
 		protected function onPhotoSelected(event:MediaEvent):void {
 			(contextView as MainView).stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 			(contextView as MainView).isLoading = true;
+			currentPromise = event.data;
 			
-			//If the coreImage Extenstion is available, use it to handle the loading of the promise.
-			if(DeviceUtils.onIOS && CoreImage.isSupported){
-				trace("Loading image with CoreImage: " + CoreImage.instance + " @" + getTimer());
-				MediaPromiseReader.instance.addEventListener(MediaPromiseReader.IMAGE_LOADED_EVENT, onMediaPromiseEvent, false, 0, true);
-				MediaPromiseReader.instance.addEventListener(MediaPromiseReader.IMAGE_NOT_LOADED_EVENT, onMediaPromiseEvent, false, 0, true);
-				MediaPromiseReader.instance.read(event.data as MediaPromise);
-				
-			} else {
-				
-				currentPromise = event.data;
-				
-				//Check extension
-				var ext:String = "jpg";
-				if(currentPromise.file){
-					ext = currentPromise.file.extension;
-					if(ext){ ext = ext.toLowerCase(); }
-				}
-				
-				//Say no to videos! 
-				if(ext == "mp4" || ext == "3gp" || ext == "webm" || ext == "mkv" || ext == "ts"){ 
-					photoFailed(null, true);
-				}
-				else {
-						
-					if(event.data.file && event.data.file.url){
-						loadExifData(currentPromise.file.url);
-					} else {
-						loadPhotoBitmap();
-					}
+			//Check extension
+			var ext:String = "jpg";
+			if(currentPromise.file){
+				ext = currentPromise.file.extension;
+				if(ext){ ext = ext.toLowerCase(); }
+			}
+			
+			//Say no to videos! 
+			if(ext == "mp4" || ext == "3gp" || ext == "webm" || ext == "mkv" || ext == "ts"){ 
+				photoFailed(null, true);
+			}
+			else {
+					
+				if(event.data.file && event.data.file.url){
+					loadExifData(currentPromise.file.url);
+				} else {
+					loadPhotoBitmap();
 				}
 			}
 		}
@@ -216,6 +233,7 @@ package ca.esdot.picshop.commands
 			exifLoader.load(new URLRequest(url));
 		}
 		
+		/*
 		protected function onMediaPromiseEvent(event:MediaPromiseImageLoadedEvent):void {
 			trace("[OpenImage] Image loaded with CoreImage @" + getTimer());
 			if(event.type == MediaPromiseReader.IMAGE_LOADED_EVENT){
@@ -227,8 +245,8 @@ package ca.esdot.picshop.commands
 			
 			MediaPromiseReader.instance.removeEventListener(MediaPromiseReader.IMAGE_LOADED_EVENT, onMediaPromiseEvent);
 			MediaPromiseReader.instance.removeEventListener(MediaPromiseReader.IMAGE_NOT_LOADED_EVENT, onMediaPromiseEvent);
-			
 		}
+		*/
 		
 		protected function onPhotoCancel(event:Event):void {
 			releaseCommand();

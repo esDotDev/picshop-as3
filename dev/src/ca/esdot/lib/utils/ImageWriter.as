@@ -25,8 +25,6 @@ package ca.esdot.lib.utils
 
 		public var saveLocationName:String;
 
-		protected var export:CameraRollExport;
-
 		protected var roll:CameraRoll;
 		
 		public function write(bmpData:BitmapData, target:File=null, quality:int = 100):void {
@@ -70,21 +68,12 @@ package ca.esdot.lib.utils
 				
 			}
 			else if(CameraRoll.supportsAddBitmapData){
-				//User CoreImage Native Extension if it's available
-				if(DeviceUtils.onIOS && CoreImage.isSupported){
-					if(!export){
-						trace("Saving Image with CoreImage: " + CoreImage.instance);
-						export = new CameraRollExport();
-					}
-					export.addEventListener(ErrorEvent.ERROR, dispatchEvent, false, 0, true);
-					export.addEventListener(Event.COMPLETE, dispatchEvent, false, 0, true);
-					export.exportJPEG(bmpData);
-				} else {
-					if(!roll){ roll = new CameraRoll(); }
-					roll.addEventListener(ErrorEvent.ERROR, dispatchEvent, false, 0, true);
-					roll.addEventListener(Event.COMPLETE, dispatchEvent, false, 0, true);
-					roll.addBitmapData(bmpData); 
-				}
+				//TODO: Use new cameraRoll from Distriqt
+				if(!roll){ roll = new CameraRoll(); }
+				roll.addEventListener(ErrorEvent.ERROR, dispatchEvent, false, 0, true);
+				roll.addEventListener(Event.COMPLETE, dispatchEvent, false, 0, true);
+				roll.addBitmapData(bmpData); 
+				
 				saveLocationName = " your Camera Roll.";
 				
 			} else {

@@ -1,8 +1,16 @@
+* Replace CameraRoll
+* Replace CameraUI
+* Replace ImageWriter
+* Get rid of RefreshImage?
+
 3.0
 * Update GoViral ANE, Test Sharing / Facebook on iOS
 * Update to new CameraRoll ANE
 
 
+Need to Replace ANE:
+* PackageManager
+* CoreImage
 
 * Fixed Facebook Import issues 
 * Fixed rotation bug when importing images

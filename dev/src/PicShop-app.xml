@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/20.0">
+<application xmlns="http://ns.adobe.com/air/application/18.0">
 
 	<id>ca.esdot.PicShop</id>
 	<filename>PicShop</filename>
@@ -85,8 +85,9 @@
    
 			    <application>
 					
-					<activity android:name="com.freshplanet.ane.AirImagePicker.AirImagePickerActivity"
-					    android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|fontScale" />
+					<activity android:name="com.distriqt.extension.camerarollextended.activities.BrowseForAssetActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="orientation|screenSize" />
+					<activity android:name="com.distriqt.extension.camerarollextended.activities.MultiImagePickerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="orientation|screenSize" />
+					<activity android:name="com.distriqt.extension.camerarollextended.activities.SelectorActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="orientation|screenSize" />
 					  
 				    <activity android:launchMode="standard">
 						<intent-filter> 
@@ -113,11 +114,9 @@
 	    <extensionID>com.milkmangames.extensions.GoViral</extensionID>
     	<extensionID>com.davikingcode.nativeExtensions.Instagram</extensionID>
     	<extensionID>com.supersonic.air</extensionID>
-    	<!-- <extensionID>com.vitapoly.nativeextensions.CoreImage</extensionID> -->
-	    <extensionID>com.freshplanet.AirImagePicker</extensionID>
     	<extensionID>com.mika.ane.refreshgallery</extensionID>
-   		<extensionID>com.doitflash.air.extensions.packageManager</extensionID>
-    	<extensionID>com.vitapoly.nativeextensions.CoreImage</extensionID>
+    	<extensionID>com.distriqt.CameraRollExtended</extensionID>
+    
     </extensions>
     
     

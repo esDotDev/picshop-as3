@@ -37,18 +37,15 @@
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
       <libraryPathEntry kind="3" linkType="1" path="src/assets/Assets.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="1" linkType="1" path="src/assets/swc"/>
-      <libraryPathEntry kind="3" linkType="1" path="ext/packageManagerExtensions.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="ext/Instagram.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="1" linkType="1" path="src/assets/frameshop_swc"/>
       <libraryPathEntry kind="5" linkType="2" path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="ext/com.milkmangames.extensions.StoreKit.ane"/>
-      <libraryPathEntry kind="5" linkType="2" path="ext/coreImage/CoreImage.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="ext/com.milkmangames.extensions.GoViral.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="ext/RefreshGallery.ane"/>
-      <libraryPathEntry kind="5" linkType="2" path="ext/AirImagePicker.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="ext/Instagram.ane"/>
-      <libraryPathEntry kind="5" linkType="2" path="ext/packageManagerExtensions.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="ext/SupersonicAirPlugin-5.0.4.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="ext/com.distriqt.CameraRollExtended.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -83,43 +80,44 @@
       </airSettings>
       <actionScriptSettings version="1"/>
     </buildTarget>
-    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="D:/_Development/esDot Studio/_certs/provisioningProfiles/Test_Profile.mobileprovision" releasePackageType="ipa-app-store">
+    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="D:/_Development/esDot_Studio/_certs/provisioningProfiles/Test2015.mobileprovision" releasePackageType="ipa-ad-hoc">
       <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="2"/>
-      <airSettings airCertificatePath="D:/_Development/esDot Studio/_certs/AppleDevelopmentCertificate.p12" airTimestamp="true" anePathSet="true" version="1">
+      <airSettings airCertificatePath="D:/_Development/esDot_Studio/_certs/AppleDevCert-2015.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes>
-          <pathEntry path="assets/Assets.fla"/>
           <pathEntry path="assets/Assets.swf"/>
           <pathEntry path="build.txt"/>
           <pathEntry path="assets/spinnerPreloader.swf"/>
-          <pathEntry path="bar-descriptor.xml"/>
-          <pathEntry path="blackberry-tablet.xml"/>
           <pathEntry path="assets/BitmapSlice9.jsfl"/>
           <pathEntry path="dummyData"/>
-          <pathEntry path="assets/Untitled-1.fla"/>
-          <pathEntry path="fonts"/>
-          <pathEntry path="assets/spinnerPreloader.fla"/>
-          <pathEntry path="assets/TouchAnimation.fla"/>
-          <pathEntry path="assets/Assets_old.swf"/>
-          <pathEntry path="assets/external"/>
           <pathEntry path="assets/RECOVER_Assets.fla"/>
-          <pathEntry path="assets/filters"/>
-          <pathEntry path="assets/Untitled-1.swf"/>
+          <pathEntry path="assets/external"/>
           <pathEntry path="BB10 Checklist.txt"/>
+          <pathEntry path="assets/TouchAnimation.png"/>
+          <pathEntry path="assets/swc"/>
+          <pathEntry path="assets/Assets.fla"/>
+          <pathEntry path="bar-descriptor.xml"/>
+          <pathEntry path="blackberry-tablet.xml"/>
+          <pathEntry path="assets/TouchAnimation.json"/>
+          <pathEntry path="fonts"/>
+          <pathEntry path="assets/Untitled-1.fla"/>
+          <pathEntry path="assets/TouchAnimation.fla"/>
+          <pathEntry path="assets/spinnerPreloader.fla"/>
+          <pathEntry path="assets/Assets_old.swf"/>
+          <pathEntry path="DebugHostInfo.xml"/>
+          <pathEntry path="assets/Untitled-1.swf"/>
+          <pathEntry path="assets/filters"/>
           <pathEntry path="assets/Assets_old.fla"/>
           <pathEntry path="buildNum.txt"/>
           <pathEntry path="assets/bitmaps"/>
-          <pathEntry path="assets/swc"/>
           <pathEntry path="assets/TouchAnimation.swf"/>
         </airExcludes>
         <anePaths>
           <anePathEntry path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
           <anePathEntry path="ext/com.milkmangames.extensions.StoreKit.ane"/>
-          <anePathEntry path="ext/coreImage/CoreImage.ane"/>
           <anePathEntry path="ext/com.milkmangames.extensions.GoViral.ane"/>
           <anePathEntry path="ext/RefreshGallery.ane"/>
           <anePathEntry path="ext/AirImagePicker.ane"/>
           <anePathEntry path="ext/Instagram.ane"/>
-          <anePathEntry path="ext/packageManagerExtensions.ane"/>
           <anePathEntry path="ext/SupersonicAirPlugin-5.0.4.ane"/>
         </anePaths>
         <newLaunchParams/>
@@ -132,8 +130,7 @@
       <actionScriptSettings version="1"/>
     </buildTarget>
     <buildTarget airDownloadURL="https://market.android.com/details?id=com.adobe.air" androidSettingsVersion="2" buildTargetName="device" isCurrent="true" platformId="com.adobe.flexide.multiplatform.android.platform">
-      <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.android.platform" reducedSizePackaging="false" version="1"/>
-      <airSettings airCertificatePath="D:/_Development/esDot Studio/_certs/esdotcert.p12" airTimestamp="true" anePathSet="true" version="1">
+      <airSettings airCertificatePath="D:/_Development/esDot_Studio/_certs/esdotcert.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes>
           <pathEntry path="assets/TouchAnimation.swf"/>
           <pathEntry path="Default-Portrait.png"/>
@@ -165,19 +162,18 @@
         <anePaths>
           <anePathEntry path="ext/com.milkmangames.extensions.AndroidIAB.ane"/>
           <anePathEntry path="ext/com.milkmangames.extensions.StoreKit.ane"/>
-          <anePathEntry path="ext/coreImage/CoreImage.ane"/>
           <anePathEntry path="ext/com.milkmangames.extensions.GoViral.ane"/>
           <anePathEntry path="ext/RefreshGallery.ane"/>
-          <anePathEntry path="ext/AirImagePicker.ane"/>
           <anePathEntry path="ext/Instagram.ane"/>
-          <anePathEntry path="ext/packageManagerExtensions.ane"/>
           <anePathEntry path="ext/SupersonicAirPlugin-5.0.4.ane"/>
+          <anePathEntry path="ext/com.distriqt.CameraRollExtended.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>
         <newPackagingParams/>
         <modifiedPackagingParams/>
       </airSettings>
+      <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.android.platform" reducedSizePackaging="false" version="1"/>
       <actionScriptSettings version="1"/>
     </buildTarget>
     <buildTarget buildTargetName="device" extraPackagingOptions="-forceAirVersion 3.5" isCurrent="true" platformId="com.qnx.flexide.multiplatform.qnx.platform" signBarFile="true" version="version">

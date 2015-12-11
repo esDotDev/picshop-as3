@@ -86,13 +86,13 @@
         <extensionID>com.milkmangames.extensions.StoreKit</extensionID>
     	<extensionID>com.milkmangames.extensions.AndroidIAB</extensionID>
 	    <extensionID>com.milkmangames.extensions.GoViral</extensionID>
-    	<extensionID>com.vitapoly.nativeextensions.CoreImage</extensionID>
 	    <extensionID>com.freshplanet.AirImagePicker</extensionID>
 	    <extensionID>com.doitflash.air.extensions.packageManager</extensionID>
     	<extensionID>com.davikingcode.nativeExtensions.Instagram</extensionID>
     	<extensionID>com.mika.ane.refreshgallery</extensionID>
     	<extensionID>com.supersonic.air</extensionID>
     	<extensionID>com.codealchemy.ane.admobane</extensionID>
+    	    <extensionID>com.distriqt.CameraRollExtended</extensionID>
     </extensions>
     
     

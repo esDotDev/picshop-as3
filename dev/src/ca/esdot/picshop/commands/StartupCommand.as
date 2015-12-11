@@ -121,37 +121,6 @@ package ca.esdot.picshop.commands
 			
 			//APPGRATIS Unlock Check
 			var skipVersionCheck:Boolean = false;
-			/**/
-			if(mainModel.isFeatureLocked(UnlockableFeatures.EXTRAS)){
-				try {
-					var packageManager:PackageManager = new PackageManager();
-					var apps:Array = packageManager.getUserApps();
-					var unlocks:Array = ["appgratis"];
-					outer:for(var i:int = apps.length; i--;){
-						for(var i2:int = unlocks.length; i2--;){
-							if(apps[i].indexOf(unlocks[i2]) != -1){
-								
-								var dialog:TitleDialog = new TitleDialog(DeviceUtils.dialogWidth, DeviceUtils.dialogHeight, "Congrats!", "This app has been unlocked courtesy of AppGratis!");
-								dialog.addEventListener(ButtonEvent.CLICKED, onFreeUnlockDialogClosed, false, 0, true);
-								dialog.setButtons(["Thanks!"]);
-								DialogManager.addDialog(dialog);
-								
-								skipVersionCheck = true;
-								
-								mainModel.unlockFeature(UnlockableFeatures.EXTRAS);
-								mainModel.unlockFeature(UnlockableFeatures.FRAMES);
-								mainModel.unlockFeature(UnlockableFeatures.FILTERS);
-								
-								commandMap.detain(this);
-								
-								break outer;
-							}
-						}
-					}
-				} catch(e:Error){
-					trace(e.getStackTrace());
-				}
-			}
 			
 			if(mainModel.settings.numSaves >= 2 && mainModel.settings.numFrameshopPrompts < 3){
 				(contextView as MainView).showFrameshopPrompt();

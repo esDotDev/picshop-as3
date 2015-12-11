@@ -1,6 +1,5 @@
 package
 {
-	import com.milkmangames.nativeextensions.GoViral;
 	
 	import flash.desktop.NativeApplication;
 	import flash.display.Sprite;
@@ -10,14 +9,15 @@ package
 	import flash.display.StageScaleMode;
 	import flash.text.TextField;
 	import flash.utils.setTimeout;
-	
+
+	import com.milkmangames.nativeextensions.GoViral;
 	import ca.esdot.lib.utils.ColorUtils;
 	import ca.esdot.lib.utils.DeviceUtils;
 	import ca.esdot.picshop.MainContext;
 	import ca.esdot.picshop.MainView;
 	import ca.esdot.picshop.data.colors.BgType;
 	import ca.esdot.picshop.data.colors.ColorTheme;
-	
+
 	public class PicShop extends Sprite
 	{
 		public static var FULL_VERSION:Boolean = true;
@@ -39,7 +39,6 @@ package
 			
 			trace(NativeApplication.nativeApplication.runtimeVersion);
 			
-			
 			BgType.DEFAULT = DeviceUtils.onIOS? BgType.WHITE_GRID: BgType.BLACK_GRID;
 			ColorTheme.bgType = BgType.DEFAULT;
 			
@@ -51,6 +50,7 @@ package
 			
 			var hsv:Object = ColorUtils.rgb2hsv(0xfee89c);
 			var color:uint = ColorUtils.hsv2rgb(47, 38.6, 99.6);
+			
 			
 			if(GoViral.isSupported()){
 				GoViral.create();
@@ -96,8 +96,8 @@ package
 		}
 		
 		protected function openInvokeUrl():void {
-			if(!mainContext || !invokeUrl){ return; }
-			mainContext.openImageUrl(invokeUrl);
+			//if(!mainContext || !invokeUrl){ return; }
+			//mainContext.openImageUrl(invokeUrl);
 		}
 
 		
