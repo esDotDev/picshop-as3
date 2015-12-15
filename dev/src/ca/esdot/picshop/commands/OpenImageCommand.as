@@ -129,7 +129,7 @@ package ca.esdot.picshop.commands
 				//Camera Roll
 				else if(CameraRoll.supportsBrowseForImage || CameraRollExtended.isSupported) { 
 					
-					if (CameraRollExtended.isSupported ){
+					/*if (CameraRollExtended.isSupported ){
 						if (!CameraRollExtended.service.hasAccess()){
 							CameraRollExtended.service.requestAccess();
 							onCancel(null);
@@ -140,9 +140,14 @@ package ca.esdot.picshop.commands
 							options.type = Asset.IMAGE;
 							CameraRollExtended.service.browseForAsset( options );
 						}
-					} else {
+					} else */if(CameraRoll.supportsBrowseForImage) {
+						var options:CameraRollBrowseOptions = new CameraRollBrowseOptions();
+						//if(DeviceUtils.isTablet){
+							options.height = 600;
+							options.width = 600;
+						//}
 						var camera:CameraRoll = new CameraRoll();
-						camera.browseForImage();
+						camera.browseForImage(options);
 						camera.addEventListener(MediaEvent.SELECT, onPhotoSelected);
 						camera.addEventListener(Event.CANCEL, onCancel);
 					}
@@ -212,12 +217,10 @@ package ca.esdot.picshop.commands
 				var exif:ExifInfo = exifLoader.exif;
 				exifRotation = 0;
 				if( exif.ifds && exif.ifds.primary && exif.ifds.primary[ "Orientation" ] ) {
-					
 					var PORTRAIT:int = 6;
 					var PORTRAIT_REVERSE:int = 8;
 					var LANDSCAPE:int = 1;
 					var LANDSCAPE_REVERSE:int = 3;
-					
 					switch( exif.ifds.primary[ "Orientation" ] ) {
 						case LANDSCAPE: exifRotation = 0; break;
 						case LANDSCAPE_REVERSE: exifRotation = 180; break;
