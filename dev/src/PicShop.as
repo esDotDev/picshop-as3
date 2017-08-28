@@ -51,7 +51,6 @@ package
 			var hsv:Object = ColorUtils.rgb2hsv(0xfee89c);
 			var color:uint = ColorUtils.hsv2rgb(47, 38.6, 99.6);
 			
-			
 			if(GoViral.isSupported()){
 				GoViral.create();
 			}
