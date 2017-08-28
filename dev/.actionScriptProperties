@@ -102,7 +102,6 @@
           <pathEntry path="assets/TouchAnimation.fla"/>
           <pathEntry path="assets/spinnerPreloader.fla"/>
           <pathEntry path="assets/Assets_old.swf"/>
-          <pathEntry path="DebugHostInfo.xml"/>
           <pathEntry path="assets/Untitled-1.swf"/>
           <pathEntry path="assets/filters"/>
           <pathEntry path="assets/Assets_old.fla"/>
@@ -115,9 +114,9 @@
           <anePathEntry path="ext/com.milkmangames.extensions.StoreKit.ane"/>
           <anePathEntry path="ext/com.milkmangames.extensions.GoViral.ane"/>
           <anePathEntry path="ext/RefreshGallery.ane"/>
-          <anePathEntry path="ext/AirImagePicker.ane"/>
           <anePathEntry path="ext/Instagram.ane"/>
           <anePathEntry path="ext/SupersonicAirPlugin-5.0.4.ane"/>
+          <anePathEntry path="ext/com.distriqt.CameraRollExtended.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>

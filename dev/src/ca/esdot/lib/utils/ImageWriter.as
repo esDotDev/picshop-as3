@@ -28,8 +28,7 @@ package ca.esdot.lib.utils
 		protected var roll:CameraRoll;
 		
 		public function write(bmpData:BitmapData, target:File=null, quality:int = 100):void {
-			//If we can push to CameraRoll, do it.
-		
+			
 			var fileName:String = "PicShop-" + GUID.create().split("-").join("") + ".png";
 			
 			if(target){
@@ -39,6 +38,9 @@ package ca.esdot.lib.utils
 				}
 				try {
 					writeJPG(bmpData, target, quality);
+					if(RefreshGallery.instance){
+						RefreshGallery.instance.refresh(rootDir.nativePath);
+					}
 					dispatchEvent(new Event(Event.COMPLETE));
 				} catch(e:Error){
 					dispatchEvent(new ErrorEvent(ErrorEvent.ERROR));
@@ -55,7 +57,6 @@ package ca.esdot.lib.utils
 				
 				try {
 					writeJPG(bmpData, rootDir, 100);
-					
 					//Refresh Android 'MediaScanner' API
 					if(RefreshGallery.instance){
 						RefreshGallery.instance.refresh(rootDir.nativePath);

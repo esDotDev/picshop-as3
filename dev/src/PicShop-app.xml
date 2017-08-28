@@ -4,7 +4,7 @@
 	<id>ca.esdot.PicShop</id>
 	<filename>PicShop</filename>
 	<name>PicShop</name>
-	<versionNumber>3.0.0</versionNumber>
+	<versionNumber>3.0.4</versionNumber>
 		        
 	<initialWindow>
 		<content>PicShop.swf</content>

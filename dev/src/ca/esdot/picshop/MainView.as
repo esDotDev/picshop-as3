@@ -62,8 +62,6 @@ package ca.esdot.picshop
 		
 		protected var frameShopPrompt:FrameShopPrompt;
 		public var downloadFrameShopClicked:Signal;
-
-		private var coreImageTestView:CoreImageTestView;
 		
 		public function MainView(stage:Stage) {
 			DialogManager.init(this);
@@ -94,10 +92,6 @@ package ca.esdot.picshop
 			
 			stage.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
 			//stage.addEventListener(StageOrientationEvent.ORIENTATION_CHANGING, onOrientationChanging, false, 0, true);
-			
-			coreImageTestView = new CoreImageTestView();
-			//addChild(coreImageTestView);
-			//coreImageTestView.setSize(stage.stageWidth, stage.stageHeight);
 			
 			
 		}
@@ -306,7 +300,7 @@ package ca.esdot.picshop
 			} else {
 				if(height > viewHeight * .11){ height = viewHeight * .11; }
 				if(DeviceUtils.screenScale < 1){
-					height *= 1.15;
+					height *= 1.151;
 				}
 			}
 			if(isPortrait){ height *= .65; }
@@ -322,10 +316,6 @@ package ca.esdot.picshop
 			
 			if(frameShopPrompt){
 				frameShopPrompt.setSize(viewWidth, viewHeight);
-			}
-			
-			if(coreImageTestView){
-				coreImageTestView.setSize(viewWidth, viewHeight);
 			}
 			
 			if(currentUnlockOffer && currentUnlockOffer.stage){

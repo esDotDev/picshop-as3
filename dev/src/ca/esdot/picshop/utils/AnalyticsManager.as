@@ -55,5 +55,17 @@ package ca.esdot.picshop.utils
 		public static function pageView(value:String):void {
 			tracker.pageView(value);  	
 		}
+		
+		public static function upgradeOpened():void {
+			tracker.event("Upgrade", "Opened" + ": " + device, device);  	
+		}
+		
+		public static function upgradeCancelled():void {
+			tracker.event("Upgrade", "Cancelled" + ": " + device, device);  	
+		}
+		
+		public static function upgradeClicked():void {
+			tracker.event("Upgrade", "Clicked" + ": " + device, device);  	
+		}
 	}
 }

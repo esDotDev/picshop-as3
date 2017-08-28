@@ -50,6 +50,7 @@ package ca.esdot.picshop.commands
 	import ca.esdot.picshop.events.ModelEvent;
 	import ca.esdot.picshop.events.UnlockEvent;
 	import ca.esdot.picshop.menus.BasicToolsMenuTypes;
+	import ca.esdot.picshop.menus.EditMenuTypes;
 	import ca.esdot.picshop.menus.ExtrasMenuTypes;
 	import ca.esdot.picshop.views.EditView;
 	
@@ -58,7 +59,7 @@ package ca.esdot.picshop.commands
 	public class EditImageCommand extends Command
 	{
 		[Inject]
-		public var event:StartEditEvent;
+		public var cmdEvent:StartEditEvent;
 		
 		[Inject]
 		public var mainModel:MainModel;
@@ -148,15 +149,15 @@ package ca.esdot.picshop.commands
 			//Assign an Extras Editor
 			mainModel.isPreviewEnabled = false;
 			
-			if(event.type == StartEditEvent.EXTRAS){
+			if(cmdEvent.type == StartEditEvent.EXTRAS){
 				
-				switch(event.editType){
+				switch(cmdEvent.editType){
 					case ExtrasMenuTypes.BG_FILL:
 						editor = new BgFillEditor(editView);
 						break;
 					
 					case ExtrasMenuTypes.ADD_IMAGE:
-						editor = new ImageLayerEditor(editView, event.image, ImageLayerEditor.CONTROLS_BLEND);
+						editor = new ImageLayerEditor(editView, cmdEvent.image, ImageLayerEditor.CONTROLS_BLEND);
 						(editor as ImageLayerEditor).lockRatio = true;
 						break;
 					
@@ -165,11 +166,11 @@ package ca.esdot.picshop.commands
 						break;
 					
 					case ExtrasMenuTypes.SPEECH_BUBBLES:
-						editor = new SpeechLayerEditor(editView, event.image);
+						editor = new SpeechLayerEditor(editView, cmdEvent.image);
 						break;
 					
 					case ExtrasMenuTypes.STICKERS:
-						editor = new ImageLayerEditor(editView, event.image);
+						editor = new ImageLayerEditor(editView, cmdEvent.image);
 						break;
 					
 					case ExtrasMenuTypes.DRAWING:
@@ -188,17 +189,17 @@ package ca.esdot.picshop.commands
 				
 			}
 			//Assign a Border Editor
-			else if(event.type == StartEditEvent.BORDER){
-				if(event.editType == ImageBorders.PATTERNS){
-					editor = new AdvancedBorderEditor(editView, event.editType);
+			else if(cmdEvent.type == StartEditEvent.BORDER){
+				if(cmdEvent.editType == ImageBorders.PATTERNS){
+					editor = new AdvancedBorderEditor(editView, cmdEvent.editType);
 				} else {
-					editor = new BasicBorderEditor(editView, event.editType);
+					editor = new BasicBorderEditor(editView, cmdEvent.editType);
 				}
 				editor.isLocked = mainModel.isFeatureLocked(UnlockableFeatures.FRAMES);
 			}
 			//Assign a Filter Editor
-			else if(event.type == StartEditEvent.FILTER){
-				switch(event.editType){
+			else if(cmdEvent.type == StartEditEvent.FILTER){
+				switch(cmdEvent.editType){
 					case ImageFilters.TEXTURE:
 						editor = new TextureFilterEditor(editView);
 						break;
@@ -208,15 +209,15 @@ package ca.esdot.picshop.commands
 						break;
 					
 					default:
-						editor = new BasicFilterEditor(editView, event.editType);
+						editor = new BasicFilterEditor(editView, cmdEvent.editType);
 						break;
 				}
-				//editor.isLocked = mainModel.isAppLocked;
+				editor.isLocked = mainModel.isAppLocked;
 			}
 			//Assign a basic editor
-			else if(event.type == StartEditEvent.BASIC){
+			else if(cmdEvent.type == StartEditEvent.BASIC){
 				
-				switch(event.editType){
+				switch(cmdEvent.editType){
 					
 					case BasicToolsMenuTypes.FOCUS:
 						editor = new FocusEditor(editView);
@@ -284,13 +285,20 @@ package ca.esdot.picshop.commands
 		protected function onEditorApply(event:EditorEvent):void {
 			mainView.click();
 			if(editor.isLocked){
+				var type:String = UnlockableFeatures.FRAMES;
+				if(cmdEvent.type == StartEditEvent.EXTRAS){
+					type = UnlockableFeatures.EXTRAS;
+				}
+				else if(cmdEvent.type == StartEditEvent.FILTER){
+					type = UnlockableFeatures.FILTERS;
+				}
+				//MainView.instance.showUpgradeOffer(type);
 				dispatch(new UnlockEvent(UnlockEvent.UNLOCK));
 			} else {
 				editor.transitionOut();
 				mainView.isLoading = true;
 				
 				setTimeout(applyToSource, 100);
-				
 			}	
 		}
 		
@@ -306,7 +314,7 @@ package ca.esdot.picshop.commands
 			System.pauseForGCIfCollectionImminent(0);
 			
 			//IF Filter or Border, close the menu
-			if(event.type == StartEditEvent.BORDER || event.type == StartEditEvent.FILTER){
+			if(cmdEvent.type == StartEditEvent.BORDER || cmdEvent.type == StartEditEvent.FILTER){
 				editView.closeEditMenu();
 			}
 			

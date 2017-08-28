@@ -110,7 +110,7 @@ package ca.esdot.picshop.menus
 			var bmp:Bitmap = new Bitmaps.closeAppButton();
 			bmp.smoothing = true;
 			closeButton.addChild(bmp);
-			addChildAt(closeButton, 0);
+			addChild(closeButton);
 			closeButton.addEventListener(MouseEvent.CLICK, onCloseClicked, false, 0, true);
 			closeClicked = new Signal();
 			showCloseButton(false);
@@ -184,10 +184,9 @@ package ca.esdot.picshop.menus
 					lockButton = new swc.UnlockButton();
 					lockButton.addEventListener(MouseEvent.CLICK, onUnlockClicked, false, 0, true);
 				}
-				//addChild(lockButton);
+				addChild(lockButton);
 				liteText.visible = true;
 				versionText.x = liteText.x + liteText.width;
-				
 			} else {
 				liteText.visible = false;
 				versionText.x = liteText.x;

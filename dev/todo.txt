@@ -1,3 +1,7 @@
+* Restore RefreshImage cmd
+* Close Button
+* Test IAP
+
 * Replace CameraRoll
 * Replace CameraUI
 * Replace ImageWriter

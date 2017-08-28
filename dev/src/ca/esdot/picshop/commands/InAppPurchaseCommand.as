@@ -55,7 +55,7 @@ package ca.esdot.picshop.commands
 				//if(Capabilities.isDebugger){
 				//	androidService.purchase(AndroidPurchaseService.ANDROID_TEST_ID);	
 				//} else {
-					if(event.data == UnlockableFeatures.FULL_UNLOCK){
+					if(event.data == UnlockableFeatures.FULL_UNLOCK || event.data == null){
 						androidService.purchase(AndroidPurchaseService.FULL_UNLOCK_ID);	
 					}
 					if(event.data == UnlockableFeatures.EXTRAS){
@@ -83,6 +83,8 @@ package ca.esdot.picshop.commands
 			} 
 			else if(Capabilities.isDebugger){
 				mainModel.isAppLocked = false;
+			} else {
+				onPurchaseFailed();
 			}
 		}
 		/* BB10 Platform
@@ -108,7 +110,8 @@ package ca.esdot.picshop.commands
 			}
 			*/
 			
-			var dialog:TitleDialog = new TitleDialog(DeviceUtils.dialogWidth, DeviceUtils.dialogHeight, "Problem", "There was a problem with the In App Upgrade. Would you like to download the full version instead?");
+			var dialog:TitleDialog = new TitleDialog(DeviceUtils.dialogWidth, DeviceUtils.dialogHeight, 
+				"Problem", "There was a problem with the In App Upgrade. Would you like to download the full version instead?");
 			dialog.setButtons([Strings.CANCEL, Strings.OK]);
 			dialog.addEventListener(ButtonEvent.CLICKED, function(event:ButtonEvent){
 				DialogManager.addDialog(dialog, true);
@@ -127,8 +130,6 @@ package ca.esdot.picshop.commands
 			dialog.setButtons([Strings.OK]);
 			dialog.addEventListener(ButtonEvent.CLICKED, releaseCommand, false, 0, true);
 			DialogManager.addDialog(dialog, true);
-			
-			
 			AnalyticsManager.upgradePurchased();
 		}
 		

@@ -108,7 +108,7 @@ package ca.esdot.picshop.editors
 			onSlider1Changed();
 			centerBlur();
 			
-			underlay = SpriteUtils.getUnderlay(0xFF, 0, editView.viewWidth, controlsLayer.y - editView.marginTop);
+			underlay = SpriteUtils.getUnderlay(0xFF, 0, editView.viewWidth, editView.viewHeight);
 			underlay.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown, false, 0, true);
 			underlay.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove, false, 0, true);
 			underlay.y = editView.marginTop;
@@ -125,7 +125,9 @@ package ca.esdot.picshop.editors
 			
 			prevTime = getTimer();
 			processTimer.start();
+			updateLayout();
 		}
+		
 		
 		protected function onMouseDown(event:MouseEvent):void {
 			isMouseDown = true;

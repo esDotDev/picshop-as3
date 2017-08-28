@@ -43,13 +43,13 @@ package ca.esdot.picshop.views
 					break;
 				
 				case UnlockableFeatures.FRAMES:
-					view.coinCost = 20;
-					view.moneyCost = "$1.99";
+					view.coinCost = 10;
+					view.moneyCost = "$0.99";
 					break;
 				
 				case UnlockableFeatures.EXTRAS:
-					view.coinCost = 30;
-					view.moneyCost = "$2.99";
+					view.coinCost = 10;
+					view.moneyCost = "$0.99";
 					break;
 			}
 			view.numCoins = mainModel.numCoins;

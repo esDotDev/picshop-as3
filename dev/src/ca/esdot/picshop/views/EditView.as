@@ -252,7 +252,7 @@ package ca.esdot.picshop.views
 			if(isPortrait){
 				height = maxHeight / (DeviceUtils.isTablet? 5.5 : 4.5);
 			} else {
-				height = maxHeight / (DeviceUtils.isTablet? 2.8 : 2.6);
+				height = maxHeight / (DeviceUtils.isTablet? 3.5 : 2.6);
 			}
 			if(currentMenu == filtersMenu || currentMenu == bordersMenu){
 				height = maxHeight;

@@ -13,37 +13,16 @@
 	<property name="IOS_APP_ID" value="com.bulkypix.bardbarian" />
 	<property name="ANDROID_BETA_ID" value="com.treefortress.bardbarian" />
 	
-	<!-- 
-		BATCH BUILDS
-	-->
-	<target name="copyXml">
-		<copy todir="assets/texturePacker/xml/">
-		   <fileset dir="assets/texturePacker/exports/" casesensitive="yes">
-		       <include name="*.xml" />
-		   </fileset>      
-	  	</copy>
-	</target>
-	
-	<target name="install-iOS">
-		<exec executable="${AIR_SDK}/bin/adt.bat" failonerror="false" >
-    		<arg value="-installApp"/>
-    		<arg value="-platform"/>
-    		<arg value="ios"/>
-			<arg value="-package"/>
-			<arg value="../builds/${APP_NAME}_${VERSION}.ipa"/>
-    	</exec>
-	</target>
+
 	<!-- 
 	COMPILE SWF 
 	http://livedocs.adobe.com/flex/3/html/help.html?content=compilers_14.html
 	-->
-	
 	<macrodef name="compile-swf">
-
+		<attribute name="midfix" default="" />
 		<attribute name="telemetry" default="false"/>
 		<attribute name="platform" default="Desktop"/>
 		<attribute name="debug" default="false"/>
-		
 		<sequential>
 			<exec executable="${AIR_SDK}/bin/amxmlc.bat" failonerror="true" >
 				<arg line='-source-path ${SRC_DIR}'/>
@@ -59,16 +38,81 @@
 				<arg line='-default-frame-rate=${FPS}'/> 
 				<arg line='-source-path+=${SOURCE_PATH}'/>
 				<arg line='-library-path+=${LIBS}'/>
-				<arg line='-output ${SRC_DIR}/PicShop.swf'/>
-				<arg line='${SRC_DIR}/PicShop.as'/>
+				<arg line='-output ${SRC_DIR}/PicShop@{midfix}.swf'/>
+				<arg line='${SRC_DIR}/PicShop@{midfix}.as'/>
 			</exec>
+		</sequential>
+	</macrodef>
+	
+	<!-- 
+	Android
+	-->
+	<macrodef name="install-Android">
+		<attribute name="midfix" default="" />
+		<sequential>
+			<exec executable="${AIR_SDK}/bin/adt.bat" failonerror="false" >
+	    		<arg value="-installApp"/>
+	    		<arg value="-platform"/>
+	    		<arg value="android"/>
+				<arg value="-package"/>
+				<arg value="../builds/${APP_NAME}@{midfix}_${VERSION}.apk"/>
+	    	</exec>
+		</sequential>
+	</macrodef>
+
+	<target name="build-Android-Batch">
+		<antcall target="build-Android" />
+		<antcall target="build-AndroidLite" />
+	</target>
+	
+	<target name="build-Android">
+		<compile-swf platform="Android" />
+		<package-Android />
+		<install-Android />
+	</target>
+	
+	<target name="build-AndroidLite">
+		<compile-swf platform="Android" midfix="Lite" />
+		<package-Android midfix="Lite" />
+		<install-Android midfix="Lite" />
+	</target>
+
+	<macrodef name="package-Android">
+		<attribute name="midfix" default="" />
+		<sequential>
+			<exec executable="${AIR_SDK}/bin/adt.bat" failonerror="false" >
+	    		<arg value="-package"/>
+	    		<arg value="-target"/>
+	    		<arg value="apk-captive-runtime"/>
+	    		<arg value="-storetype"/>
+	    		<arg value="pkcs12"/>
+	    		<arg value="-keystore"/>
+	    		<arg value="${ANDROID_CERT}"/>
+	    		<arg value="-storepass"/>
+	    		<arg value="${ANDROID_CERT_PASSWORD}"/>
+	    		<arg value="../builds/${APP_NAME}@{midfix}_${VERSION}.apk"/>
+				<arg value="PicShop@{midfix}-app.xml"/>
+				<arg line="${INCLUDED_FOLDERS}"/>
+	    		<arg value="PicShop@{midfix}.swf"/>
+	    		<arg value="-extdir"/>
+	    		<arg value="../ext"/>
+	    	</exec>
 		</sequential>
 	</macrodef>
 	
 	<!-- 
 	BUILD IOS
 	-->
-	
+	<target name="install-iOS">
+		<exec executable="${AIR_SDK}/bin/adt.bat" failonerror="false" >
+    		<arg value="-installApp"/>
+    		<arg value="-platform"/>
+    		<arg value="ios"/>
+			<arg value="-package"/>
+			<arg value="../builds/${APP_NAME}_${VERSION}.ipa"/>
+    	</exec>
+	</target>
+
 	<target name="build-iOS">
 		<compile-swf platform="iOS" />
 		<antcall target="package-ios-dev" />
@@ -80,7 +124,6 @@
 		<antcall target="package-ios-store" />
 	</target>
 	
-	
 	<target name="package-ios-dev">
 	 	<package-ios packageType="ipa-ad-hoc" />
 	 </target>
@@ -89,104 +132,8 @@
 		<package-ios suffix="_RC"
 			packageType="ipa-app-store"
 			provisioning="${APPLE_PROVISIONING_RELEASE}" 
-			cert="${APPLE_CERT_RELEASE}" 
-		/>
+			cert="${APPLE_CERT_RELEASE}" />
 	 </target>
-	
-	<!--
-	<target name="build-iOS-dev">
-		<compile-swf platform="iOS" everyplay="false" 
-			test="true" />
-		<antcall target="package-ios-dev" />
-	</target>
-	
-	<target name="build-iOS-dev-logger">
-		<compile-swf platform="iOS" everyplay="false" 
-			test="true" logger="true" />
-		<antcall target="package-ios-dev" />
-	</target>
-	
-	<target name="build-iOS-fast">
-		<compile-swf platform="iOS" everyplay="false" 
-			 test="true" />
-		<antcall target="package-ios-fast" />
-	</target>
-	
-	<target name="build-iOS-fast-logger">
-		<compile-swf platform="iOS" test="true" everyplay="false" 
-			logger="true" />
-		<antcall target="package-ios-fast" />
-	</target>
-	
-	<target name="build-iOS-playtest">
-		<compile-swf platform="iOS" everyplay="false" />
-		<antcall target="package-ios-playtest" />
-	</target>
-	
-	
-	<target name="build-iOS-playtest-logger">
-		<compile-swf platform="iOS" everyplay="false" 
-			logger="true" />
-		<antcall target="package-ios-logger" />
-	</target>
-	
-	<target name="build-iOS-release">
-		<compile-swf platform="iOS" everyplay="false" />
-		<antcall target="package-ios-release" />
-	</target>
-	
-	<target name="build-iOS-telemetry">
-		<compile-swf platform="iOS" everyplay="false" 
-			telemetry="true"/>
-		<antcall target="package-ios-dev" />
-	</target>
-
-	<target name="package-ios-fast">
-	  	<package-ios 
-			suffix="_Fast"
-			packageType="ipa-debug-interpreter"
-	  		legacyAOT="yes"
-		/>
-	 </target>
-	
-	 
-	<target name="package-ios-playtest">
-		<package-ios 
-			legacyAOT="no"
-			suffix="_Playtest"
-			packageType="ipa-ad-hoc"
-		/>
-	 </target>
-	
-	<target name="package-ios-logger">
-		<package-ios 
-			legacyAOT="no"
-			suffix="_Playtest_Logger"
-			packageType="ipa-ad-hoc"
-		/>
-	 </target>
-	
-	<target name="package-ios-beta">
-		<package-ios 
-			suffix="_Beta"
-			packageType="ipa-ad-hoc"
-			provisioning="${APPLE_PROVISIONING_DEV}" 
-			cert="${APPLE_CERT_DEV}" 
-			certPass="${APPLE_CERT_PASSWORD}"
-		/>
-	 </target>
-	
-	<target name="package-ios-release">
-		<package-ios 
-			legacyAOT="yes"
-			suffix="_BulkyPix_RC"
-			packageType="ipa-app-store"
-			provisioning="${APPLE_PROVISIONING_BULKYPIX_RELEASE}" 
-			cert="${APPLE_CERT_BULKYPIX_RELEASE}" 
-			certPass="${APPLE_CERT_PASSWORD_BULKYPIX_RELEASE}"
-		/>
-	 </target>
-	-->
 	
 					
 	<macrodef name="package-ios">
@@ -228,11 +175,9 @@
 	    		<arg value="PicShop.swf"/>
 	    		<arg value="-extdir"/>
 	    		<arg value="../ext"/>
-				
 	    	</exec>
-			
 		</sequential>
 	</macrodef>
-	
 
+	
 </project>

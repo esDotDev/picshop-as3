@@ -184,7 +184,7 @@ package ca.esdot.picshop.menus
 		
 		protected function onMenuButtonClicked(event:MouseEvent):void {
 			//locked?
-			/**/
+			/*
 			if((event.target as LabelButton).icon){
 				if(typesByButton[event.target] == EditMenuTypes.BORDERS){
 					unlockFeatureClicked.dispatch(UnlockableFeatures.FRAMES);
@@ -196,14 +196,14 @@ package ca.esdot.picshop.menus
 					unlockFeatureClicked.dispatch(UnlockableFeatures.FILTERS);
 				}
 			}
-			else {
+			else {*/
 				if(typesByButton[event.target] == currentType && !requireSelection){
 					(event.target as LabelButton).isSelected = false;
 					setMenuType(null);
 				} else {
 					setMenuType(typesByButton[event.target]);
 				}	
-			}
+			//}
 		}
 		
 		public function setMenuType(value:String):void {

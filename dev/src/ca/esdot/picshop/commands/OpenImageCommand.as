@@ -68,17 +68,21 @@ package ca.esdot.picshop.commands
 		
 		override public function execute():void {
 			trace("Open Image!", CameraUI.isSupported);
-			
-			CameraRollExtended.init( DISTRIQT_KEY );
-			if (CameraRollExtended.isSupported )
-			{
-				trace( "CameraRollExtended Version:     " + CameraRollExtended.service.version );
-				trace( "CameraRollExtended Auth Status: " + CameraRollExtended.service.authorisationStatus() );
-				
-				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.CANCEL, onDistriqtCameraRollCancel );
-				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.SELECT, onDistriqtCameraRollSelect );
-				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.LOADED, onDistriqtCameraRollLoaded );
-				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.ASSET_LOADED, onDistriqtCameraRollAssetLoaded );
+			try {
+				CameraRollExtended.init( DISTRIQT_KEY );
+				if (CameraRollExtended.isSupported )
+				{
+					trace( "CameraRollExtended Version:     " + CameraRollExtended.service.version );
+					trace( "CameraRollExtended Auth Status: " + CameraRollExtended.service.authorisationStatus() );
+					
+					//CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.CANCEL, onDistriqtCameraRollCancel );
+					//CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.SELECT, onDistriqtCameraRollSelect );
+					//CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.LOADED, onDistriqtCameraRollLoaded );
+					//CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.ASSET_LOADED, onDistriqtCameraRollAssetLoaded );
+				}
+			} 
+			catch(e:Error){
+				trace(e.getStackTrace());
 			}
 			
 			
@@ -142,10 +146,10 @@ package ca.esdot.picshop.commands
 						}
 					} else */if(CameraRoll.supportsBrowseForImage) {
 						var options:CameraRollBrowseOptions = new CameraRollBrowseOptions();
-						//if(DeviceUtils.isTablet){
-							options.height = 600;
-							options.width = 600;
-						//}
+						if(DeviceUtils.isTablet){
+							//options.height = 600;
+							//options.width = 600;
+						}
 						var camera:CameraRoll = new CameraRoll();
 						camera.browseForImage(options);
 						camera.addEventListener(MediaEvent.SELECT, onPhotoSelected);

@@ -9,6 +9,7 @@ package ca.esdot.picshop.menus
 	import flash.geom.Matrix;
 	import flash.text.TextField;
 	import flash.utils.Dictionary;
+	import flash.utils.getTimer;
 	import flash.utils.setTimeout;
 	
 	import ca.esdot.lib.data.TweenConstants;
@@ -81,15 +82,12 @@ package ca.esdot.picshop.menus
 				//Trim height
 				sourceThumb = new BitmapData(sourceData.width* scale, sourceData.width * scale * .75, true, 0x0);
 			}
-			sourceThumb.drawWithQuality(sourceBitmap, m, null, null, null, true, StageQuality.HIGH);
+			sourceThumb.draw(sourceBitmap, m, null, null, null, true);
 
 			thumbQueue = [];
 			for(var i:int = 0; i < tileList.length; i++){
 				thumbQueue[i] = tileList[i];
 			}
-			trace("ThumbQueue -- " + tileList.length);
-			setTimeout(createThumb, TweenConstants.NORMAL * 1000);
-			
 			if(!loadingText){
 				loadingText = TextFields.getBold(DeviceUtils.fontSize * .75, 0xFFFFFF, "center");
 				loadingText.height = 50;
@@ -97,6 +95,10 @@ package ca.esdot.picshop.menus
 			}
 			loadingText.visible = true;
 			loadingText.text = "Creating Thumbnails";
+			
+			trace("ThumbQueue -- " + tileList.length);
+			setTimeout(createThumbs_2, TweenConstants.NORMAL * 1000);
+			updateLayout();
 		}
 		
 		public function clearThumbs():void {
@@ -132,6 +134,15 @@ package ca.esdot.picshop.menus
 			positionTiles();
 		}
 		
+		protected function createThumbs_2():void {
+			loadingText.text = "Creating Thumbnails...";
+			for(var i:int = 0; i < tileList.length; i++){
+				createThumb();
+			}
+			showThumbs();
+			updateLayout();
+		}
+		
 		protected function createThumb():void {
 			var button:FilterTileButton;
 			var filter:String = thumbQueue.shift();
@@ -150,14 +161,6 @@ package ca.esdot.picshop.menus
 			typesByButton[button] = filter;
 			
 			container.addChild(button);
-			
-			if(buttonList.length == tileList.length){
-				showThumbs();
-			} else {
-				loadingText.text = "Creating Thumbnails \n(" + buttonList.length + "/" + tileList.length + ")";
-				setTimeout(createThumb, 1);
-			}
-			updateLayout();
 		}
 		
 		override protected function positionTiles():void {
@@ -193,7 +196,9 @@ package ca.esdot.picshop.menus
 		}
 		
 		protected function applyFilter(filter:String, data:BitmapData, sourceThumb:BitmapData):void {
+			var t:int = getTimer();
 			ImageFilters.apply(filter, data, sourceThumb);
+			trace("Applied: " + filter + " in " + (getTimer() - t) + "ms");
 		}
 		
 		protected function showThumbs():void {

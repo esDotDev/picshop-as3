@@ -188,9 +188,7 @@ package ca.esdot.picshop.views
 		public function remove():void {
 			MainView.instance.removeUpgradeOffer();
 		}
-		
-		
-		
+
 		override public function transitionIn():void {
 			
 			updateLayout();
@@ -206,7 +204,6 @@ package ca.esdot.picshop.views
 			
 			imageTween = new GTween(imageLayer, 1, {x: imageLayer.x}, {delay: .5, ease: Back.easeOut});
 			imageLayer.x += DeviceUtils.hitSize;
-			
 			
 			tapTip.alpha = 0;
 			tipTween = new GTween(tapTip, 1, {alpha: 1, x: tapTip.x}, {delay: 1.5, ease: Back.easeOut, onComplete: function(){

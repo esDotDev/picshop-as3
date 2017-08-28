@@ -87,9 +87,9 @@ package ca.esdot.picshop.views
 				if(mainModel.isFeatureLocked(UnlockableFeatures.FRAMES)){
 					view.editMenu.lockFeature(UnlockableFeatures.FRAMES);
 				}
-				//if(mainModel.isFeatureLocked(UnlockableFeatures.FILTERS)){
-					//view.editMenu.lockFeature(UnlockableFeatures.FILTERS);
-				//}
+				if(mainModel.isFeatureLocked(UnlockableFeatures.FILTERS)){
+					view.editMenu.lockFeature(UnlockableFeatures.FILTERS);
+				}
 			}
 		}
 		

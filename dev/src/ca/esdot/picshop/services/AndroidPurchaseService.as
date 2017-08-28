@@ -85,6 +85,7 @@ package ca.esdot.picshop.services
 		
 		protected function onPurchaseFailed(event:*):void {
 			onError.dispatch();
+			
 		}
 		
 		protected function onInventoryLoaded(e:AndroidBillingEvent):void {
@@ -103,7 +104,7 @@ package ca.esdot.picshop.services
 				
 				case FULL_UNLOCK_ID:
 				//case ANDROID_TEST_ID:
-					mainModel.unlockAllFeatures();
+					mainModel.isAppLocked = false;
 					break;
 				
 				case UNLOCK_EXTRAS_ID:

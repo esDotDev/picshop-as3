@@ -1,5 +1,7 @@
 package ca.esdot.lib.dialogs
 {
+	import com.gskinner.motion.GTween;
+	
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 	import flash.display.Stage;
@@ -51,10 +53,12 @@ package ca.esdot.lib.dialogs
 		
 		protected static function createUnderlay():Sprite {
 			var underlay:Sprite = new Sprite();
-			underlay.graphics.beginFill(ColorTheme.bgColor, .5);
+			underlay.graphics.beginFill(ColorTheme.bgColor, 1);
 			underlay.graphics.drawRect(0, 0, 10, 10);
 			underlay.graphics.endFill();	
 			underlay.addEventListener(MouseEvent.CLICK, onUnderlayClicked, false, 0, true);
+			underlay.alpha = 0;
+			new GTween(underlay, .35, {alpha: .65});
 			return underlay;
 		}
 		
@@ -123,7 +127,6 @@ package ca.esdot.lib.dialogs
 			} else {
 				setSize(viewWidth, viewHeight);
 			}
-			
 			dialog.addEventListener(Event.CANCEL, onDialogCancel, false, 0, true);
 			return dialog;
 		}

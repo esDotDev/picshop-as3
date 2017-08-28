@@ -41,7 +41,7 @@ package ca.esdot.lib.image
 		public static const EMBOSS:String = "Emboss";
 		public static const RIPPLE:String = "Ripple	";
 	
-		public static function apply(effect:String, target:BitmapData, source:BitmapData, strength:Number = .5, blendMode:String = null):void {
+		public static function apply(effect:String, target:BitmapData, source:BitmapData, strength:Number = .85, blendMode:String = null):void {
 			
 			switch(effect) {
 				case BW:

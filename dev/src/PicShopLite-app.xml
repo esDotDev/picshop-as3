@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/25.0">
+<application xmlns="http://ns.adobe.com/air/application/19.0">
 
 	<id>ca.esdot.PicShop.Lite</id>
 	<filename>PicShop Lite</filename>
 	<name>PicShop Lite</name>
-	<versionNumber>3.0.0</versionNumber>
+	<versionNumber>3.0.4</versionNumber>
 		        
 	<initialWindow>
 		<content>PicShopLite.swf</content>
@@ -134,10 +134,8 @@
 	    <extensionID>com.milkmangames.extensions.GoViral</extensionID>
     	<extensionID>com.davikingcode.nativeExtensions.Instagram</extensionID>
     	<extensionID>com.supersonic.air</extensionID>
-	    <extensionID>com.freshplanet.AirImagePicker</extensionID>
     	<extensionID>com.mika.ane.refreshgallery</extensionID>
-   		<extensionID>com.doitflash.air.extensions.packageManager</extensionID>
-   		    <extensionID>com.distriqt.CameraRollExtended</extensionID>
+  		<extensionID>com.distriqt.CameraRollExtended</extensionID>
     </extensions>
     
 </application>

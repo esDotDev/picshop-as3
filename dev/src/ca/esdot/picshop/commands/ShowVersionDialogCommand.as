@@ -39,9 +39,8 @@ package ca.esdot.picshop.commands
 			if(stageWidth < 500 && stageHeight < 500){ return; }
 			
 			var text:String = "";
-			var title:String = "Check out what's new in 3.0!";
-			var features:Array = [];
-			
+			var title:String = "Check out what's new in 3.0.4!";
+			var features:Array = ["Fixed Focal Point adjustments", "Fixed Close Image Button"];
 			
 			if(DeviceUtils.onIOS){
 				//features.unshift("New iOS7 Redesign!");
@@ -54,10 +53,10 @@ package ca.esdot.picshop.commands
 				]);
 			}
 			
-			
 			if(DeviceUtils.onAndroid){
 				features = features.concat([ 
-					"Can now load images from Google Photos, Picasa etc"
+					"Fixed issues with loading from Camera Roll",
+					"Fixed missing images after saving"
 				]);
 				if(!PicShop.FULL_VERSION){
 					features = features.concat([ 

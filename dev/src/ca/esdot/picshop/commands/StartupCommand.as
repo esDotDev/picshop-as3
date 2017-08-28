@@ -121,23 +121,20 @@ package ca.esdot.picshop.commands
 			
 			//APPGRATIS Unlock Check
 			var skipVersionCheck:Boolean = false;
-			
+			/*
 			if(mainModel.settings.numSaves >= 2 && mainModel.settings.numFrameshopPrompts < 3){
 				(contextView as MainView).showFrameshopPrompt();
 				mainModel.settings.numFrameshopPrompts++;
 				skipVersionCheck = true;
 			}
-			
+			*/
 			//Check for first install of this version?
 			if(!mainModel.settings.versionHash){ mainModel.settings.versionHash = {}; }
 			if(!skipVersionCheck){
 				checkVersion();
 			}
-			
 			//Record startup version
 			dispatch(new SettingsEvent(SettingsEvent.SAVE));
-			
-			
 			trace("[StartupCommand] Startup Complete");
 		}
 		

@@ -86,7 +86,7 @@ package ca.esdot.picshop.commands
 			
 			sourceData = sourceData.clone();
 			
-			//A little secret sauce... ;)
+			//Sharpen the image a on save, to make it look a little extra crisp;
 			var sharpenFilter:SharpenFilter = new SharpenFilter((Math.max(sourceData.width, sourceData.height) * .01));
 			if(!failedOnce){
 				sourceData.applyFilter(sourceData, sourceData.rect, new Point(), sharpenFilter);
@@ -108,7 +108,6 @@ package ca.esdot.picshop.commands
 			var dialog:TitleDialog = new TitleDialog(DeviceUtils.dialogWidth, DeviceUtils.dialogHeight, 
 				"Save Complete", "Your image has been saved. Thanks for choosing PicShop!" + 
 				"\n\nNOTE: You can find your image in " + imageWriter.saveLocationName);
-			
 			dialog.setButtons(["Ok"]);
 			dialog.addEventListener(ButtonEvent.CLICKED, function():void{ 
 				releaseCommand();

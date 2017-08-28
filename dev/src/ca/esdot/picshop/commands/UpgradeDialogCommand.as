@@ -6,6 +6,7 @@ package ca.esdot.picshop.commands
 	import ca.esdot.picshop.commands.events.CommandEvent;
 	import ca.esdot.picshop.data.Strings;
 	import ca.esdot.picshop.dialogs.UpgradeDialog;
+	import ca.esdot.picshop.utils.AnalyticsManager;
 	
 	import org.robotlegs.mvcs.Command;
 	
@@ -17,6 +18,8 @@ package ca.esdot.picshop.commands
 			var dialog:UpgradeDialog = new UpgradeDialog();
 			dialog.addEventListener(ButtonEvent.CLICKED, onDialogClicked, false, 0, true);
 			DialogManager.addDialog(dialog, true);
+			dialog.transitionIn();
+			AnalyticsManager.upgradeOpened();
 		}
 		
 		protected function onDialogClicked(event:ButtonEvent):void {
@@ -29,8 +32,11 @@ package ca.esdot.picshop.commands
 				} else {
 					dispatch(new CommandEvent(CommandEvent.OPEN_PURCHASE_LINK));
 				}
+				AnalyticsManager.upgradeClicked();
 			} else if(event.label == Strings.RESTORE){
 				dispatch(new CommandEvent(CommandEvent.IN_APP_RESTORE));
+			} else {
+				AnalyticsManager.upgradeCancelled();
 			}
 		}
 	}

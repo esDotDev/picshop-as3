@@ -31,8 +31,6 @@ package ca.esdot.picshop.dialogs
 		}
 		
 		override protected function createChildren():void {
-			topDivider = new Bitmap(SharedBitmaps.backgroundAccent);
-			
 			titleText = TextFields.getRegular(fontSize * 1.25, AccentColors.currentColor, "left");
 			addChild(titleText);
 			
